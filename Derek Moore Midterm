@@ -1,0 +1,262 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DerekMooreJr2002/Data-Science/blob/main/Derek%20Moore%20Midterm\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 32,
+      "metadata": {
+        "id": "qo4orOh1QzrR"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np #numpy denotes an array\n",
+        "import matplotlib.pyplot as plt #matplotlib.pyplot is a command which lets you insert data, rather from an array or an outside source as a plot graph"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "X = np.array([8,17,36,15,3])    \n",
+        "Y = np.array([16,42,72,30,9])  "
+      ],
+      "metadata": {
+        "id": "eDdfNy1YQ5VO"
+      },
+      "execution_count": 33,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(X,Y,'r.') #this command adds your data to a plt graph. The \"x\" and \"y\" command inside the command shows the arrays that you will be doing. The r command with the period shows what color and symbol you will be using to mark your graph."
+      ],
+      "metadata": {
+        "id": "bwEzkndjRAw-",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 283
+        },
+        "outputId": "a79d597d-d99f-44e9-879d-fa70508c0a5e"
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[<matplotlib.lines.Line2D at 0x7f72b46ec590>]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 34
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<Figure size 432x288 with 1 Axes>"
+            ],
+            "image/png": "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\n"
+          },
+          "metadata": {
+            "needs_background": "light"
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "m_guess = 0\n",
+        "b_guess = 0 #this generates a baseline for the numbers in your plot. This will aid number accuracy"
+      ],
+      "metadata": {
+        "id": "8pUDOa2bRYWY"
+      },
+      "execution_count": 35,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "$y=mx+b$"
+      ],
+      "metadata": {
+        "id": "9pkUPkbzSwtL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "m_guess * X + b_guess #add x array to zero and multiply by zero"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ThmiCA2ISHIZ",
+        "outputId": "3f5cea15-1b1f-4ec8-d9f6-b46ff504b7df"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([0, 0, 0, 0, 0])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y_guess = m_guess * X + b_guess"
+      ],
+      "metadata": {
+        "id": "ndLRAbo0SMlI"
+      },
+      "execution_count": 37,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y_guess - Y #subtract y from zero and your values become negative."
+      ],
+      "metadata": {
+        "id": "tcznOFlBS_r6",
+        "outputId": "4b5b0e52-8c27-4b54-db66-334529236d69",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([-16, -42, -72, -30,  -9])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 38
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.sum((y_guess - Y)**2) #square the previously achieved number, once you do this your number will turn positive."
+      ],
+      "metadata": {
+        "id": "tCDXN_yNTlHb",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "bac0fa85-9725-468d-accd-242d46a9f899"
+      },
+      "execution_count": 39,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8185"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 39
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "loss = np.sum((y_guess - Y)**2) #this defines the term loss"
+      ],
+      "metadata": {
+        "id": "KqzZP0KBUQfr"
+      },
+      "execution_count": 40,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "best_loss_so_far = 1000000000000\n",
+        "m_best = 0 \n",
+        "b_best = 0 \n",
+        "for m_guess in np.linspace(-100,100,100): # This command finds numbers in between other numbers, for example this command is going to find every number between -100 and 100. It will find 100 of these numbers.\n",
+        "    for b_guess in np.linspace(-100,100,100):\n",
+        "        \n",
+        "        y_guess = m_guess * X + b_guess\n",
+        "\n",
+        "        loss = np.sum((y_guess - Y)**2)\n",
+        "\n",
+        "        if loss < best_loss_so_far:\n",
+        "            m_best = m_guess\n",
+        "            b_best = b_guess\n",
+        "            best_loss_so_far = loss\n",
+        "\n",
+        "print(\"Found best fit:\") #this will give a title to the numbers that the AI generated. A label\n",
+        "print(m_best,b_best,loss) #this command tells the AI what order to place the numbers"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dxa0jobTWMg8",
+        "outputId": "25277667-914d-4108-a3ff-42f4d67b2a62"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Found best fit:\n",
+            "1.0101010101010104 17.171717171717177 19652185.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "6yu1KMv7WXy7"
+      },
+      "execution_count": 41,
+      "outputs": []
+    }
+  ]
+}
